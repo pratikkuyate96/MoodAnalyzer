@@ -7,8 +7,15 @@ public class MoodAnalyzerTest {
 
     @Test
     public void givenSadMood_ShouldReturnSad() {
-        MoodAnalyzer moodanalyzer = new MoodAnalyzer();
-        String mood = moodanalyzer.analyzerMood("I am in happy mood");
-        Assert.assertEquals("HAPPY",mood);
+        MoodAnalyzer moodanalyzer = new MoodAnalyzer("I am in sad mood");
+        String mood = moodanalyzer.analyzerMood();
+        Assert.assertEquals("SAD",mood);
     }
+
+   /* @Test
+    public void givenHappyMood_ShouldReturnHappy() {
+        MoodAnalyzer moodanalyzer = new MoodAnalyzer("I am in happy mood");
+        String mood = moodanalyzer.analyzerMood();
+        Assert.assertEquals("HAPPY",mood);
+    }*/
 }
