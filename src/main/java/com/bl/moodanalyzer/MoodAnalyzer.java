@@ -7,11 +7,11 @@ public class MoodAnalyzer {
 
      }
 
-    public MoodAnalyzer(String message) {
+    public MoodAnalyzer(String message){
         this.message = message;
     }
 
-    public String analyzerMood() throws MoodAnalyzerException{
+    public String analyzerMood() throws MoodAnalyzerException {
         try {
             if(message.equals("")) {
                 throw new MoodAnalyzerException(MoodAnalyzerException.ExceptionType.EMPTY,"EMPTY");
@@ -27,4 +27,3 @@ public class MoodAnalyzer {
         }
     }
 }
-

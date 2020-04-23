@@ -1,6 +1,6 @@
 package com.bl.moodanalyzer;
 
-    public class MoodAnalyzerException extends Exception{
+    public class MoodAnalyzerException extends Exception {
         public enum ExceptionType {
             EMPTY, NULL
         };
