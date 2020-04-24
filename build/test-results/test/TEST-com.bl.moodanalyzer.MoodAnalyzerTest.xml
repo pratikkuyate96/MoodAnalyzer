@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.bl.moodanalyzer.MoodAnalyzerTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2020-04-23T17:33:38" hostname="HP" time="0.017">
+<testsuite name="com.bl.moodanalyzer.MoodAnalyzerTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2020-04-24T16:13:49" hostname="HP" time="0.094">
   <properties/>
-  <testcase name="givenNullMood_ShouldReturnHappy" classname="com.bl.moodanalyzer.MoodAnalyzerTest" time="0.017">
-    <failure message="com.bl.moodanalyzer.MoodAnalyzerException: NULL" type="com.bl.moodanalyzer.MoodAnalyzerException">com.bl.moodanalyzer.MoodAnalyzerException: NULL
-	at com.bl.moodanalyzer.MoodAnalyzer.analyzerMood(MoodAnalyzer.java:26)
-	at com.bl.moodanalyzer.MoodAnalyzerTest.givenNullMood_ShouldReturnHappy(MoodAnalyzerTest.java:25)
+  <testcase name="givenSadMood_ShouldReturnSad1" classname="com.bl.moodanalyzer.MoodAnalyzerTest" time="0.008"/>
+  <testcase name="givenEmpty_ShouldReturnExceptionMessage" classname="com.bl.moodanalyzer.MoodAnalyzerTest" time="0.005"/>
+  <testcase name="givenHappyMood_ShouldReturnHappy" classname="com.bl.moodanalyzer.MoodAnalyzerTest" time="0.002"/>
+  <testcase name="givenNullMood_ShouldReturnExceptionMessage" classname="com.bl.moodanalyzer.MoodAnalyzerTest" time="0.001"/>
+  <testcase name="givenHappyMood_ShouldReturnHappy1" classname="com.bl.moodanalyzer.MoodAnalyzerTest" time="0.0"/>
+  <testcase name="givenSadMood_ShouldReturnSad" classname="com.bl.moodanalyzer.MoodAnalyzerTest" time="0.001"/>
+  <testcase name="givenNullMood_ShouldReturnHappy" classname="com.bl.moodanalyzer.MoodAnalyzerTest" time="0.065"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[com.bl.moodanalyzer.MoodAnalyzerException: NULL
+	at com.bl.moodanalyzer.MoodAnalyzer.analyzerMood(MoodAnalyzer.java:27)
+	at com.bl.moodanalyzer.MoodAnalyzer.analyzerMood(MoodAnalyzer.java:13)
+	at com.bl.moodanalyzer.MoodAnalyzerTest.givenNullMood_ShouldReturnHappy(MoodAnalyzerTest.java:40)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -52,8 +60,5 @@
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
 	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:56)
 	at java.base/java.lang.Thread.run(Thread.java:830)
-</failure>
-  </testcase>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
+]]></system-err>
 </testsuite>

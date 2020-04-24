@@ -1,10 +1,8 @@
 package com.bl.moodanalyzer;
-
 public class MoodAnalyzer {
      String message;
 
      public MoodAnalyzer() {
-
      }
 
     public MoodAnalyzer(String message){
@@ -12,16 +10,19 @@ public class MoodAnalyzer {
     }
 
     public String analyzerMood() throws MoodAnalyzerException {
+        return analyzerMood(this.message);
+    }
+
+    public String analyzerMood(String message) throws MoodAnalyzerException {
         try {
             if(message.equals("")) {
                 throw new MoodAnalyzerException(MoodAnalyzerException.ExceptionType.EMPTY,"EMPTY");
             }
-            if (message.contains("SAD")) {
+            else if (message.contains("SAD")) {
                 return "SAD";
             }else {
                 return "HAPPY";
             }
-
            }catch (NullPointerException e) {
              throw new MoodAnalyzerException(MoodAnalyzerException.ExceptionType.NULL,"NULL");
         }
