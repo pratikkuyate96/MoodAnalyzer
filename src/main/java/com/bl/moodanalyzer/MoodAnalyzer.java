@@ -3,6 +3,7 @@ public class MoodAnalyzer {
      String message;
 
      public MoodAnalyzer() {
+
      }
 
     public MoodAnalyzer(String message){

@@ -63,4 +63,30 @@ public class MoodAnalyzerTest {
             Assert.assertEquals("EMPTY", e.getMessage());
         }
     }
+
+    @Test
+    public void givenMoodAnalyzer_DefaultConstructor_whenProper_shouldReturnObject() {
+        MoodAnalyzer moodAnalyzerObject = MoodAnalyzerFactory.createMoodAnalyzerUsingFactory();
+        MoodAnalyzer moodAnalyzer = new MoodAnalyzer();
+        Assert.assertEquals(moodAnalyzer, moodAnalyzerObject);
+    }
+
+    @Test
+    public void givenClassName_WhenImproper_ShouldThrowMoodAnalyzerException() {
+        try {
+            MoodAnalyzerFactory.getConstructor("com.bl.moodanalyzer.MoodAnalyzer", String.class);
+        } catch (MoodAnalyzerException e) {
+            Assert.assertEquals(MoodAnalyzerException.ExceptionType.CLASS_NOT_FOUND, e.type);
+        }
+    }
+
+    //tc 4.3
+    @Test
+    public void givenConstructorName_WhenImproper_ShouldReturnMoodAnalyzerException() {
+        try {
+            MoodAnalyzerFactory.getConstructor("com.bl.moodanalyzer.MoodAnalyzer", Integer.class);
+        } catch (MoodAnalyzerException e) {
+            Assert.assertEquals(MoodAnalyzerException.ExceptionType.INVALID_CONSTRUCTOR, e.type);
+        }
+    }
 }
