@@ -71,7 +71,6 @@ public class MoodAnalyzerTest {
         Assert.assertEquals(moodAnalyzer, moodAnalyzerObject);
     }
 
-    //TC 4.2
     @Test
     public void givenClassName_WhenImproper_ShouldThrowMoodAnalyzerException() {
         try {
@@ -81,7 +80,6 @@ public class MoodAnalyzerTest {
         }
     }
 
-    //TC 4.3
     @Test
     public void givenConstructorName_WhenImproper_ShouldReturnMoodAnalyzerException() {
         try {

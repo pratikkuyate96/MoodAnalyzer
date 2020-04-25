@@ -24,7 +24,6 @@ public class MoodAnalyzerFactory {
         return null;
     }
 
-
     public static Constructor<?> getConstructor(String className, Class constructor) {
         try {
             Class<?> moodAnalyzer = Class.forName(className);
@@ -35,5 +34,5 @@ public class MoodAnalyzerFactory {
             throw new MoodAnalyzerException(MoodAnalyzerException.ExceptionType.INVALID_CONSTRUCTOR, e.getMessage());
         }
     }
-
+    
 }
