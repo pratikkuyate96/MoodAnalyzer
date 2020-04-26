@@ -39,8 +39,8 @@ public class MoodAnalyzerFactory {
     public static MoodAnalyzer createMoodAnalyzerUsingFactory(String message) {
         try {
             Constructor constructor = Class.forName("com.bl.moodanalyzer.MoodAnalyzer").getConstructor(String.class);
-            MoodAnalyzer reflectionMood = (MoodAnalyzer) constructor.newInstance(message);
-            return reflectionMood;
+            MoodAnalyzer factoryMood = (MoodAnalyzer) constructor.newInstance(message);
+            return factoryMood;
         } catch (Exception e) {
             e.printStackTrace();
         }
