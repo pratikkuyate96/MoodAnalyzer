@@ -64,6 +64,7 @@ public class MoodAnalyzerTest {
         }
     }
 
+    //t4.1
     @Test
     public void givenMoodAnalyzer_DefaultConstructor_whenProper_shouldReturnObject() {
         MoodAnalyzer moodAnalyzerObject = MoodAnalyzerFactory.createMoodAnalyzerUsingFactory();
@@ -85,7 +86,34 @@ public class MoodAnalyzerTest {
         try {
             MoodAnalyzerFactory.getConstructor("com.bl.moodanalyzer.MoodAnalyzer", Integer.class);
         } catch (MoodAnalyzerException e) {
-            Assert.assertEquals(MoodAnalyzerException.ExceptionType.INVALID_CONSTRUCTOR, e.type);
+            Assert.assertEquals(MoodAnalyzerException.ExceptionType.NO_SUCH_METHOD, e.type);
+        }
+    }
+
+    //tc5.1
+    @Test
+    public void givenMoodAnalyzerClassWithParameterizedConstructor_WhenProper_ShouldReturnObjectEqual() {
+        MoodAnalyzer moodAnalyzerObject = MoodAnalyzerFactory.createMoodAnalyzerUsingFactory("Mood is Happy");
+        Assert.assertEquals(new MoodAnalyzer("Mood is Happy"), moodAnalyzerObject);
+    }
+
+    //tc5.2
+    @Test
+    public void givenClassNameInParameterizedConstructor_WhenImproper_ShouldThrowMoodAnalyzerException() {
+        try {
+            MoodAnalyzerFactory.getConstructor("com.bl.moodanalyzer.MoodAnalyzer1", String.class);
+        } catch (MoodAnalyzerException e) {
+            Assert.assertEquals(MoodAnalyzerException.ExceptionType.CLASS_NOT_FOUND, e.type);
+        }
+    }
+
+    //tc 5.3
+    @Test
+    public void givenConstructorNameInParameterizedConstructor_WhenImproper_ShouldReturnMoodAnalyzerException() {
+        try {
+            MoodAnalyzerFactory.getConstructor("com.bl.moodanalyzer.MoodAnalyzer", Integer.class);
+        } catch (MoodAnalyzerException e) {
+            Assert.assertEquals(MoodAnalyzerException.ExceptionType.NO_SUCH_METHOD, e.type);
         }
     }
 

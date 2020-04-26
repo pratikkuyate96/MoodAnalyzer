@@ -2,7 +2,7 @@ package com.bl.moodanalyzer;
 
     public class MoodAnalyzerException extends RuntimeException {
         public enum ExceptionType {
-            EMPTY, NULL,CLASS_NOT_FOUND,INVALID_CONSTRUCTOR
+            EMPTY, NULL,CLASS_NOT_FOUND,NO_SUCH_METHOD
         }
 
         public ExceptionType type;

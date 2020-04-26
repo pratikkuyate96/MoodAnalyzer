@@ -5,7 +5,7 @@ public class MoodAnalyzer {
      public MoodAnalyzer() {
      }
 
-    public MoodAnalyzer(String message){
+    public MoodAnalyzer(String message) {
         this.message = message;
     }
 
@@ -26,5 +26,13 @@ public class MoodAnalyzer {
            }catch (NullPointerException e) {
              throw new MoodAnalyzerException(MoodAnalyzerException.ExceptionType.NULL,"NULL");
         }
+    }
+
+    //Override
+    public boolean equals(MoodAnalyzer another) {
+        if (this.message == another.message) {
+            return true;
+        }
+        return false;
     }
 }

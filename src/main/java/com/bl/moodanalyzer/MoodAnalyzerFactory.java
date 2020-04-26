@@ -4,6 +4,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
 public class MoodAnalyzerFactory {
+
     public static MoodAnalyzer createMoodAnalyzerUsingFactory() {
 
         try {
@@ -31,8 +32,19 @@ public class MoodAnalyzerFactory {
         } catch (ClassNotFoundException e) {
             throw new MoodAnalyzerException(MoodAnalyzerException.ExceptionType.CLASS_NOT_FOUND, e.getMessage());
         } catch (NoSuchMethodException e) {
-            throw new MoodAnalyzerException(MoodAnalyzerException.ExceptionType.INVALID_CONSTRUCTOR, e.getMessage());
+            throw new MoodAnalyzerException(MoodAnalyzerException.ExceptionType.NO_SUCH_METHOD, e.getMessage());
         }
     }
-    
+
+    public static MoodAnalyzer createMoodAnalyzerUsingFactory(String message) {
+        try {
+            Constructor constructor = Class.forName("com.bl.moodanalyzer.MoodAnalyzer").getConstructor(String.class);
+            MoodAnalyzer reflectionMood = (MoodAnalyzer) constructor.newInstance(message);
+            return reflectionMood;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 }
