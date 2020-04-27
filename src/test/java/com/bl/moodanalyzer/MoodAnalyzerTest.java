@@ -84,7 +84,7 @@ public class MoodAnalyzerTest {
     @Test
     public void givenConstructorName_WhenImproper_ShouldReturnMoodAnalyzerException() {
         try {
-            MoodAnalyzerFactory.getConstructor("com.bl.moodanalyzer.MoodAnalyzer", Integer.class);
+            MoodAnalyzerFactory.getConstructor("com.bl.moodanalyzer.MoodAnalyzer", Character.class);
         } catch (MoodAnalyzerException e) {
             Assert.assertEquals(MoodAnalyzerException.ExceptionType.NO_SUCH_METHOD, e.type);
         }
@@ -137,4 +137,36 @@ public class MoodAnalyzerTest {
         }
     }
 
+    //tc7.1
+    @Test
+    public void givenFieldValue_WhenProper_ShouldReturnValue() {
+        MoodAnalyzer moodAnalyzer = MoodAnalyzerFactory.createMoodAnalyzerUsingFactory();
+        try {
+            String mood = (String) MoodAnalyzerFactory.invokeField(moodAnalyzer, "I am in Happy Mood", "message");
+            Assert.assertEquals("HAPPY", mood);
+        } catch (MoodAnalyzerException e) {
+            e.printStackTrace();
+        }
+    }
+
+//    //tc7.2
+//    @Test
+//    public void givenFieldValue_WhenImproper_ShouldThrowException() {
+//        MoodAnalyzer moodAnalyzerUsingFactory = MoodAnalyzerFactory.createMoodAnalyzerUsingFactory();
+//        try {
+//            MoodAnalyzerFactory.invokeField(moodAnalyzerUsingFactory, "I am in Happy mood", "msg");
+//        } catch (MoodAnalyzerException e) {
+//            Assert.assertEquals(MoodAnalyzerException.ExceptionType.NO_SUCH_FIELD, e.type);
+//        }
+//    }
+
+//    @Test
+//    public void givenNullValue_WhenProper_ShouldThrowException() {
+//        MoodAnalyzer moodAnalyzerUsingFactory = MoodAnalyzerFactory.createMoodAnalyzerUsingFactory();
+//        try {
+//            MoodAnalyzerFactory.invokeField(moodAnalyzerUsingFactory, null, "message");
+//        } catch (MoodAnalyzerException e) {
+//            Assert.assertEquals(MoodAnalyzerException.ExceptionType.FIELD_ISSUE, e.type);
+//        }
+//    }
 }

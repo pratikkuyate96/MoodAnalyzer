@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.bl.moodanalyzer.MoodAnalyzerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-04-27T05:10:56" hostname="HP" time="0.021">
+<testsuite name="com.bl.moodanalyzer.MoodAnalyzerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-04-27T12:41:15" hostname="HP" time="0.012">
   <properties/>
-  <testcase name="givenClassName_WhenImproper_ShouldThrowMoodAnalyzerException" classname="com.bl.moodanalyzer.MoodAnalyzerTest" time="0.021"/>
+  <testcase name="givenFieldValue_WhenProper_ShouldReturnValue" classname="com.bl.moodanalyzer.MoodAnalyzerTest" time="0.012"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
