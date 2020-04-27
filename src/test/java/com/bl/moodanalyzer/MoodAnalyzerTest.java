@@ -149,16 +149,16 @@ public class MoodAnalyzerTest {
         }
     }
 
-//    //tc7.2
-//    @Test
-//    public void givenFieldValue_WhenImproper_ShouldThrowException() {
-//        MoodAnalyzer moodAnalyzerUsingFactory = MoodAnalyzerFactory.createMoodAnalyzerUsingFactory();
-//        try {
-//            MoodAnalyzerFactory.invokeField(moodAnalyzerUsingFactory, "I am in Happy mood", "msg");
-//        } catch (MoodAnalyzerException e) {
-//            Assert.assertEquals(MoodAnalyzerException.ExceptionType.NO_SUCH_FIELD, e.type);
-//        }
-//    }
+    //tc7.2
+    @Test
+    public void givenFieldValue_WhenImproper_ShouldThrowException() {
+        MoodAnalyzer moodAnalyzerUsingFactory = MoodAnalyzerFactory.createMoodAnalyzerUsingFactory();
+        try {
+            MoodAnalyzerFactory.invokeField(moodAnalyzerUsingFactory, "I am in Happy mood", "msg");
+        } catch (MoodAnalyzerException e) {
+            Assert.assertEquals(MoodAnalyzerException.ExceptionType.NO_SUCH_FIELD, e.type);
+        }
+    }
 
 //    @Test
 //    public void givenNullValue_WhenProper_ShouldThrowException() {
