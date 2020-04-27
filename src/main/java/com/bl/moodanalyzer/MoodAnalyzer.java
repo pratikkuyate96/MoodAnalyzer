@@ -1,9 +1,9 @@
 package com.bl.moodanalyzer;
 public class MoodAnalyzer {
-     String message;
+    String message;
 
-     public MoodAnalyzer() {
-     }
+    public MoodAnalyzer() {
+    }
 
     public MoodAnalyzer(String message) {
         this.message = message;
@@ -15,22 +15,22 @@ public class MoodAnalyzer {
 
     public String analyzerMood(String message) throws MoodAnalyzerException {
         try {
-            if(message.equals("")) {
-                throw new MoodAnalyzerException(MoodAnalyzerException.ExceptionType.EMPTY,"EMPTY");
-            }
-            else if (message.contains("SAD")) {
+            if (message.equals("")) {
+                throw new MoodAnalyzerException(MoodAnalyzerException.ExceptionType.EMPTY, "EMPTY");
+            } else if (message.contains("SAD")) {
                 return "SAD";
-            }else {
+            } else {
                 return "HAPPY";
             }
-           }catch (NullPointerException e) {
-             throw new MoodAnalyzerException(MoodAnalyzerException.ExceptionType.NULL,"NULL");
+        } catch (NullPointerException e) {
+            throw new MoodAnalyzerException(MoodAnalyzerException.ExceptionType.NULL, "NULL");
         }
     }
 
+
     //Override
-    public boolean equals(MoodAnalyzer another) {
-        if (this.message == another.message) {
+    public boolean equals(Object obj) {
+        if (obj instanceof MoodAnalyzer){
             return true;
         }
         return false;

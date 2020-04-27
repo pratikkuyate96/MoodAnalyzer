@@ -25,9 +25,9 @@ public class MoodAnalyzerFactory {
         return null;
     }
 
-    public static Constructor<?> getConstructor(String className, Class constructor) {
+    public static Constructor getConstructor(String className, Class constructor) {
         try {
-            Class<?> moodAnalyzer = Class.forName(className);
+            Class moodAnalyzer = Class.forName(className);
             return moodAnalyzer.getConstructor(constructor);
         } catch (ClassNotFoundException e) {
             throw new MoodAnalyzerException(MoodAnalyzerException.ExceptionType.CLASS_NOT_FOUND, e.getMessage());
@@ -44,6 +44,18 @@ public class MoodAnalyzerFactory {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return null;
+    }
+
+    public static String invokeMethod(MoodAnalyzer moodAnalyzer, String name) {
+        try {
+            return (String) moodAnalyzer.getClass().getDeclaredMethod(name).invoke(moodAnalyzer);
+        } catch (NoSuchMethodException e) {
+            throw new MoodAnalyzerException(MoodAnalyzerException.ExceptionType.NO_SUCH_METHOD, e.getMessage());
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();        }
         return null;
     }
 

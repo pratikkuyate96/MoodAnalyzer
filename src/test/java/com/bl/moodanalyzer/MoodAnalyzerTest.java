@@ -71,11 +71,11 @@ public class MoodAnalyzerTest {
         Assert.assertEquals(moodAnalyzer, moodAnalyzerObject);
     }
 
-    //TC 4.1
+    //TC 4.2
     @Test
     public void givenClassName_WhenImproper_ShouldThrowMoodAnalyzerException() {
         try {
-            MoodAnalyzerFactory.getConstructor("com.bl.moodanalyzer.MoodAnalyzer", String.class);
+            MoodAnalyzerFactory.getConstructor("com.bl.moodanalyzer.MoodAnalyzer1", String.class);
         } catch (MoodAnalyzerException e) {
             Assert.assertEquals(MoodAnalyzerException.ExceptionType.CLASS_NOT_FOUND, e.type);
         }
@@ -109,9 +109,33 @@ public class MoodAnalyzerTest {
     @Test
     public void givenParameterizedConstructor_WhenImproper_ShouldReturnMoodAnalyzerException() {
         try {
-            MoodAnalyzerFactory.getConstructor("com.bl.moodanalyzer.MoodAnalyzer", Integer.class);
+            MoodAnalyzerFactory.getConstructor("com.bl.moodanalyzer.MoodAnalyzer", Character.class);
         } catch (MoodAnalyzerException e) {
             Assert.assertEquals(MoodAnalyzerException.ExceptionType.NO_SUCH_METHOD, e.type);
         }
     }
+
+    //TC 6.1
+    @Test
+    public void givenHappyMessage_WhenProper_ShouldReturnHappyMood() {
+        try {
+            MoodAnalyzer moodAnalyzerObject = MoodAnalyzerFactory.createMoodAnalyzerUsingFactory("Mood is Happy");
+            String mood = MoodAnalyzerFactory.invokeMethod(moodAnalyzerObject, "analyzeMood");
+            Assert.assertEquals("HAPPY", mood);
+        } catch (MoodAnalyzerException e) {
+            e.printStackTrace();
+        }
+    }
+
+    //TC 6.2
+    @Test
+    public void givenHappyMessage_WhenImProper_ShouldThrowException() {
+        try {
+            MoodAnalyzer moodAnalyzerObject = MoodAnalyzerFactory.createMoodAnalyzerUsingFactory("Mood is Happy");
+            MoodAnalyzerFactory.invokeMethod(moodAnalyzerObject, "analyzeMood");
+        } catch (MoodAnalyzerException e) {
+            Assert.assertEquals(MoodAnalyzerException.ExceptionType.NO_SUCH_METHOD, e.type);
+        }
+    }
+
 }
