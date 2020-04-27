@@ -64,6 +64,7 @@ public class MoodAnalyzerTest {
         }
     }
 
+    //TC 4.1
     @Test
     public void givenMoodAnalyzer_DefaultConstructor_whenProper_shouldReturnObject() {
         MoodAnalyzer moodAnalyzerObject = MoodAnalyzerFactory.createMoodAnalyzerUsingFactory();
@@ -71,7 +72,6 @@ public class MoodAnalyzerTest {
         Assert.assertEquals(moodAnalyzer, moodAnalyzerObject);
     }
 
-    //TC 4.2
     @Test
     public void givenClassName_WhenImproper_ShouldThrowMoodAnalyzerException() {
         try {
@@ -127,7 +127,6 @@ public class MoodAnalyzerTest {
         }
     }
 
-    //TC 6.2
     @Test
     public void givenHappyMessage_WhenImProper_ShouldThrowException() {
         try {
